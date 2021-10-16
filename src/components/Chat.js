@@ -5,6 +5,7 @@ import ImageListItem from '@material-ui/core/ImageListItem';
 import Typography from '@material-ui/core/Typography';
 import Avatar from '@material-ui/core/Avatar';
 import EditIcon from '@material-ui/icons/Edit';
+import TelegramIcon from '@material-ui/icons/Telegram';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -160,7 +161,7 @@ export default function Explore() {
     </div>
      <div className={classes.root1}>
     
-
+<TelegramIcon className={classes.icon1} /> 
 
   
  </div>
