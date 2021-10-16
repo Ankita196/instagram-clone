@@ -5,6 +5,10 @@ import ImageListItem from '@material-ui/core/ImageListItem';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import SettingsIcon from '@material-ui/icons/Settings';
+import GridOnIcon from '@material-ui/icons/GridOn';
+import TvOffIcon from '@material-ui/icons/TvOff';
+import ContactsIcon from '@material-ui/icons/Contacts';
+import TurnedInNotIcon from '@material-ui/icons/TurnedInNot';
 
 
 
@@ -15,12 +19,30 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'row',
     width:800,
     height:270,
-
+    borderBottom:"ridge",
     marginLeft:370,
     marginTop:10,
+
    
    
    
+  },
+  root1: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'space-around',
+    overflow: 'hidden',
+    backgroundColor: theme.palette.background.paper,
+    marginTop:20,
+    backgroundColor:"#eeeeee"
+  },
+  root2: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'space-around',
+   width:700,
+    backgroundColor:"#eeeeee",
+    marginLeft:450
   },
   root: {
     display: 'flex',
@@ -88,7 +110,22 @@ const useStyles = makeStyles((theme) => ({
   icon:{
     marginLeft:20,
     marginTop:30
-  }
+  },
+  icon1:{
+    marginLeft:10,
+    marginTop:10,
+    fontSize:30
+  },
+  imageList: {
+    width: 700,
+    height: 450,
+   
+  },
+  image1:{
+    width:"100%",
+    height:"100%"
+  },
+  
   
 }));
 
@@ -303,6 +340,7 @@ export default function Story() {
   ])
 
   return (
+    <>
     <div className={classes.grow}>
       <div>
         <img src={profile[0].img} className={classes.image}/>
@@ -324,5 +362,22 @@ export default function Story() {
             {profile[0].name}
             </Typography></div></div>
     </div>
+
+    <div className={classes.root2}>
+      <div>POSTS <GridOnIcon className={classes.icon1} /></div>
+      <div>IGTV<TvOffIcon className={classes.icon1}/></div>
+      <div>SAVED <TurnedInNotIcon className={classes.icon1}/></div>
+      <div>TAGS<ContactsIcon className={classes.icon1}/></div>
+      </div>
+    <div className={classes.root1}>
+    <ImageList rowHeight={160} className={classes.imageList} cols={3}>
+      {profile[0].posts.map((item) => (
+        <ImageListItem key={item.id} cols={item.cols || 1}>
+          <img src={item} className={classes.image1}/>
+        </ImageListItem>
+      ))}
+    </ImageList>
+  </div>
+  </>
   );
 }
