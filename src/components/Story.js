@@ -33,8 +33,8 @@ const useStyles = makeStyles((theme) => ({
     transform: 'translateZ(0)',
   },
   title: {
-  fontSize:10,
-  marginLeft:10
+  fontSize:15,
+  marginLeft:20
   },
  
   image:{
@@ -51,7 +51,7 @@ const useStyles = makeStyles((theme) => ({
 
 
 
-export default function PrimarySearchAppBar() {
+export default function Story() {
   const classes = useStyles();
   const [story, setStories] = useState([
     {
@@ -95,7 +95,7 @@ export default function PrimarySearchAppBar() {
      
     },
     {
-      id: 4,
+      id: 6,
      
      title: "yogesh",
       img:
@@ -104,15 +104,15 @@ export default function PrimarySearchAppBar() {
     },
     
     {
-      id: 5,
+      id: 7,
    
-     title: "Hits Of Atif",
+     title: "bholesh",
       img:
         "https://images.hungama.com/c/1/9e3/fdd/53988130/53988130_300x300.jpg",
      
     },
     {
-      id: 5,
+      id: 9,
    
      title: "Hits Of Atif",
       img:
