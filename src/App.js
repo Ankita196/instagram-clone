@@ -5,6 +5,8 @@ import Story from "./components/Story"
 import Posts from "./components/Posts"
 import Explore from "./components/explore"
 import Chat from "./components/Chat"
+import Profile from "./components/Profile"
+
 import {BrowserRouter,Switch,Route} from "react-router-dom"
 
 export default function App() {
@@ -16,6 +18,7 @@ export default function App() {
       <Route exact path="/chat"><Chat /></Route>
       <Route exact path="/"> <Story/> <Posts/> </Route>
      <Route exact path="/Explore"><Explore /></Route>
+     <Route exact path="/profile"><Profile /></Route>
      <Story />
     
      

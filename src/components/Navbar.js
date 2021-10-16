@@ -14,6 +14,9 @@ import {Link} from "react-router-dom";
 import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
+import TurnedInNotIcon from '@material-ui/icons/TurnedInNot';
+import SettingsIcon from '@material-ui/icons/Settings';
+import AutorenewIcon from '@material-ui/icons/Autorenew';
 
 
 
@@ -59,7 +62,8 @@ marginRight:150,
 marginTop:10
   },
   link:{
-    color:"black"
+    color:"black",
+    textDecoration:"none"
   } 
   
 }));
@@ -125,10 +129,11 @@ export default function Navbar() {
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
-        <MenuItem onClick={handleClose}>Profile</MenuItem>
-        <MenuItem onClick={handleClose}>Saved</MenuItem>
-        <MenuItem onClick={handleClose}>settings</MenuItem>
-        <MenuItem onClick={handleClose}>Switch Account</MenuItem>
+        <Link to="/profile" className={classes.link}><MenuItem onClick={handleClose}><AccountCircle />Profile</MenuItem></Link>
+        <MenuItem onClick={handleClose}><TurnedInNotIcon />Saved</MenuItem>
+        <MenuItem onClick={handleClose}>< SettingsIcon />settings</MenuItem>
+        <MenuItem onClick={handleClose}><AutorenewIcon />Switch Account</MenuItem>
+        
         <MenuItem onClick={handleClose}>Logout</MenuItem>
       </Menu>
           </div>
