@@ -9,7 +9,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import HomeIcon from '@material-ui/icons/Home';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
-
+import AlbumIcon from '@material-ui/icons/Album';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -89,9 +89,12 @@ export default function Navbar() {
                 < TelegramIcon />
               </Badge>
             </IconButton>
-            <IconButton aria-label="show 17 new notifications" color="inherit">
+            <IconButton  color="inherit">
+            <AlbumIcon /> </IconButton>
+            <IconButton  color="inherit">
               <FavoriteBorderIcon />
             </IconButton>
+           
             <IconButton
               edge="end"
               aria-label="account of current user"

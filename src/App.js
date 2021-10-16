@@ -9,7 +9,6 @@ export default function App() {
   return (
     <div class="App">
       <Navbar />
-      <Chat />
       {/* <Story />
       <Posts/> */}
     </div>
