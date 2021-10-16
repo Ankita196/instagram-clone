@@ -27,15 +27,15 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-export default function Explore(props) {
+export default function Igtv(props) {
   const classes = useStyles();
-  const explore=props.posts
+  const igtv=props.igtv.igtv
   return (
     <div className={classes.root}>
       <ImageList rowHeight={160} className={classes.imageList} cols={2}>
-        {explore.map((item) => (
+        {igtv.map((item) => (
           <ImageListItem key={item.id} cols={item.cols || 1}>
-           <img src={item.posts} alt={item.name}  className={classes.image}/>
+         <img src={item}   className={classes.image}/>
           </ImageListItem>
         ))}
       </ImageList>

@@ -9,6 +9,7 @@ import GridOnIcon from '@material-ui/icons/GridOn';
 import TvOffIcon from '@material-ui/icons/TvOff';
 import ContactsIcon from '@material-ui/icons/Contacts';
 import TurnedInNotIcon from '@material-ui/icons/TurnedInNot';
+import {Link} from "react-router-dom"
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -184,7 +185,7 @@ export default function Profile(props) {
           POSTS <GridOnIcon className={classes.icon1} />
         </div>
         <div>
-          IGTV
+         <Link to="/igtv"> IGTV</Link>
           <TvOffIcon className={classes.icon1} />
         </div>
         <div>

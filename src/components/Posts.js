@@ -92,7 +92,7 @@ export default function Posts(props) {
     <>
       {post.map((data) => (
         <>
-          <div className={classes.grow} key={posts.id}>
+          <div className={classes.grow} key={post.id}>
             <div className={classes.header}>
             <div className={classes.avtar}>
                 <Avatar src={data.profile} />

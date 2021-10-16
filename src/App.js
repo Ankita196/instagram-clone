@@ -6,7 +6,7 @@ import Posts from "./components/Posts"
 import Explore from "./components/explore"
 import Chat from "./components/Chat"
 import Profile from "./components/Profile"
-import Home from "./components/homepage"
+import Igtv from "./components/igtv"
 
 import {BrowserRouter,Switch,Route} from "react-router-dom"
 
@@ -228,10 +228,11 @@ export default function App() {
      
 
       <Route exact path="/profile"><Profile profile={profile[0]} /></Route>
-      <Route exact path="/explore/:id" components={Posts}></Route>
+     
       <Route exact path="/chat"><Chat posts={profile[0].followers}/></Route>
       
      <Route exact path="/Explore"><Explore posts={profile[0].followers}/></Route>
+     <Route exact path="/igtv"><Igtv igtv={profile[0]}/></Route>
     
      
     
