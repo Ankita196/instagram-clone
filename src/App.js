@@ -15,10 +15,11 @@ export default function App() {
       <BrowserRouter>
       <Navbar />
       <Switch>
+      <Route exact path="/profile"><Profile /></Route>
       <Route exact path="/chat"><Chat /></Route>
       <Route exact path="/"> <Story/> <Posts/> </Route>
      <Route exact path="/Explore"><Explore /></Route>
-     <Route exact path="/profile"><Profile /></Route>
+    
      <Story />
     
      

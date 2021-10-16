@@ -3,18 +3,22 @@ import { makeStyles } from '@material-ui/core/styles';
 import ImageList from '@material-ui/core/ImageList';
 import ImageListItem from '@material-ui/core/ImageListItem';
 import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
+import SettingsIcon from '@material-ui/icons/Settings';
+
+
 
 const useStyles = makeStyles((theme) => ({
   grow: {
     flexGrow: 1,
     display: 'flex',
     flexDirection: 'row',
-    width:600,
-    height:120,
-    border:"ridge",
-    marginLeft:470,
+    width:800,
+    height:270,
+
+    marginLeft:370,
     marginTop:10,
-    backgroundColor:"white"
+   
    
    
   },
@@ -32,18 +36,58 @@ const useStyles = makeStyles((theme) => ({
     transform: 'translateZ(0)',
   },
   title: {
-  fontSize:15,
-  marginLeft:20
+  fontSize:25,
+  
+  padding:20
   },
+ subtitle:{
+  fontSize:15,
+ 
+ marginLeft:50
+ 
+ },
+ subtitle1:{
+  fontSize:15,
+  marginLeft:10,
+  fontWeight:"bold",
+ 
+ },
  
   image:{
-    width:60,
-    height:60,
-    borderRadius:50,
+    width:170,
+    height:170,
+    borderRadius:100,
     marginTop:20,
-    border:"solid",
-    borderColor:"#c51162"
+   
 
+  },
+  head1:{
+    display:"flex",
+    padding:30
+  },
+  head2:{
+    display:"flex",
+    marginLeft:30
+  
+  },
+  head3:{
+    marginLeft:70,
+    marginTop:10
+  },
+  head:{
+    display:'flex',
+    flexDirection:"column"
+  },
+  button:{
+    width:170,
+    height:30,
+    marginLeft:20,
+    marginTop:30,
+    color:"black"
+  },
+  icon:{
+    marginLeft:20,
+    marginTop:30
   }
   
 }));
@@ -54,7 +98,7 @@ export default function Story() {
   const classes = useStyles();
   
 
-  const [story, setStories] = useState([
+  const [profile, setProfile] = useState([
     {
       id: 1,
      
@@ -260,8 +304,25 @@ export default function Story() {
 
   return (
     <div className={classes.grow}>
-      
-     
+      <div>
+        <img src={profile[0].img} className={classes.image}/>
+      </div>
+      <div className={classes.head}>
+      <div className={classes.head1}>
+      <div>
+      <Typography className={classes.title} variant="h6" noWrap>
+            {profile[0].username}
+            </Typography> </div>  <div><Button variant="outlined" color="primary" className={classes.button}>
+ Edit Profile
+</Button></div>  <div className={classes.icon}> < SettingsIcon/></div>
+      </div>
+    
+      <div className={classes.head2}>
+      <div className={classes.subtitle} >post<br/><Typography className={classes.subtitle1} variant="h6" noWrap>{profile[0].posts.length}</Typography></div>  <div className={classes.subtitle}>followers<br/><Typography className={classes.subtitle1} variant="h6" noWrap>{ profile[0].followers.length} </Typography></div>  <div className={classes.subtitle}>following<br/><Typography className={classes.subtitle1} variant="h6" noWrap>{profile[0].following.length}  </Typography></div>
+      </div>
+      <div className={classes.head3}> <Typography className={classes.subtitle1} variant="h6" noWrap>
+            {profile[0].name}
+            </Typography></div></div>
     </div>
   );
 }
