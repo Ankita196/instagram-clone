@@ -123,13 +123,13 @@ export default function Profile(props) {
     <>
       <div className={classes.grow}>
         <div>
-          <img src={profile[0].profile} className={classes.image} />
+          <img src={profile.profile} className={classes.image} />
         </div>
         <div className={classes.head}>
           <div className={classes.head1}>
             <div>
               <Typography className={classes.title} variant="h6" noWrap>
-                {profile[0].username}
+                {profile.username}
               </Typography>{' '}
             </div>{' '}
             <div>
@@ -152,28 +152,28 @@ export default function Profile(props) {
               post
               <br />
               <Typography className={classes.subtitle1} variant="h6" noWrap>
-                {profile[0].posts.length}
+                {profile.posts.length}
               </Typography>
             </div>{' '}
             <div className={classes.subtitle}>
               followers
               <br />
               <Typography className={classes.subtitle1} variant="h6" noWrap>
-                {profile[0].followers.length}{' '}
+                {profile.followers.length}{' '}
               </Typography>
             </div>{' '}
             <div className={classes.subtitle}>
               following
               <br />
               <Typography className={classes.subtitle1} variant="h6" noWrap>
-                {profile[0].following.length}{' '}
+                {profile.following.length}{' '}
               </Typography>
             </div>
           </div>
           <div className={classes.head3}>
             {' '}
             <Typography className={classes.subtitle1} variant="h6" noWrap>
-              {profile[0].name}
+              {profile.name}
             </Typography>
           </div>
         </div>
@@ -197,7 +197,7 @@ export default function Profile(props) {
       </div>
       <div className={classes.root1}>
         <ImageList rowHeight={160} className={classes.imageList} cols={3}>
-          {profile[0].posts.map((item) => (
+          {profile.posts.map((item) => (
             <ImageListItem key={item.id} cols={item.cols || 1}>
               <img src={item} className={classes.image1} />
             </ImageListItem>
