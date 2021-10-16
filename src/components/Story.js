@@ -4,7 +4,6 @@ import ImageList from '@material-ui/core/ImageList';
 import ImageListItem from '@material-ui/core/ImageListItem';
 import Typography from '@material-ui/core/Typography';
 
-
 const useStyles = makeStyles((theme) => ({
   grow: {
     flexGrow: 1,
@@ -13,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
     width:600,
     height:120,
     border:"ridge",
-    marginLeft:370,
+    marginLeft:470,
     marginTop:10,
     backgroundColor:"white"
    
@@ -53,6 +52,8 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Story() {
   const classes = useStyles();
+  
+
   const [story, setStories] = useState([
     {
       id: 1,

@@ -16,13 +16,14 @@ const useStyles = makeStyles((theme) => ({
   },
   imageList: {
     width: 700,
-    height: 550,
+    height: 650,
    
   },
   image:{
     width:"100%",
     height:"100%"
-  }
+  },
+  
 }));
 
 
