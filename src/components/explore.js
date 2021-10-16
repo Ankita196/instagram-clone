@@ -11,11 +11,13 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'space-around',
     overflow: 'hidden',
     backgroundColor: theme.palette.background.paper,
-    marginTop:20
+    marginTop:20,
+    backgroundColor:"#eeeeee"
   },
   imageList: {
-    width: 900,
-    height: 450,
+    width: 700,
+    height: 550,
+   
   },
   image:{
     width:"100%",
@@ -96,7 +98,7 @@ export default function Explore() {
   ])
   return (
     <div className={classes.root}>
-      <ImageList rowHeight={160} className={classes.imageList} cols={3}>
+      <ImageList rowHeight={160} className={classes.imageList} cols={2}>
         {story.map((item) => (
           <ImageListItem key={item.id} cols={item.cols || 1}>
             <img src={item.img} alt={item.title}  className={classes.image}/>
