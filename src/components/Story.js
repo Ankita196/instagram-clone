@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import ImageList from '@material-ui/core/ImageList';
 import ImageListItem from '@material-ui/core/ImageListItem';
 import Typography from '@material-ui/core/Typography';
+import {useLocation } from "react-router-dom"
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -50,89 +51,23 @@ const useStyles = makeStyles((theme) => ({
 
 
 
-export default function Story() {
+export default function Story(props) {
   const classes = useStyles();
   
 
-  const [story, setStories] = useState([
-    {
-      id: 1,
-     
-     title: "sapana",
-      img:
-        "https://i.scdn.co/image/ab67616d0000b27354e544672baa16145d67612b",
-    
-    },
-    {
-      id: 2,
-   
-     title: "raghvendra",
-      img:
-        "https://a10.gaanacdn.com/gn_img/albums/kGxbnw0Ky4/Gxbn8dG03y/size_xxl.jpg",
-     
-    },
-    {
-      id: 3,
-    
-     title: "ankita",
-      img:
-        "https://m.media-amazon.com/images/I/81hQLmFiFNL._SS500_.jpg",
-     
-    },
-    {
-      id: 4,
-     
-     title: "tushar",
-      img:
-        "https://images.hungama.com/c/1/9e3/fdd/53988130/53988130_300x300.jpg",
-      
-    },
-    {
-      id: 5,
-   
-     title: "milind",
-      img:
-        "https://images.hungama.com/c/1/9e3/fdd/53988130/53988130_300x300.jpg",
-     
-    },
-    {
-      id: 6,
-     
-     title: "yogesh",
-      img:
-        "https://images.hungama.com/c/1/9e3/fdd/53988130/53988130_300x300.jpg",
-      
-    },
-    
-    {
-      id: 7,
-   
-     title: "bholesh",
-      img:
-        "https://images.hungama.com/c/1/9e3/fdd/53988130/53988130_300x300.jpg",
-     
-    },
-    {
-      id: 9,
-   
-     title: "Hits Of Atif",
-      img:
-        "https://images.hungama.com/c/1/9e3/fdd/53988130/53988130_300x300.jpg",
-     
-    }
-  
-  ])
-
+ 
+  const { state } = useLocation();
+ const stories=props.stories
   return (
     <div className={classes.grow}>
       
       <div className={classes.root}>
       <ImageList className={classes.imageList} cols={6.5}>
-        {story.map((item) => (
+        {stories.map((item) => (
           <ImageListItem key={item.img}>
-            <img src={item.img} alt={item.title}  className={classes.image}/>
+            <img src={item.story} alt={item.id}  className={classes.image}/>
             <Typography className={classes.title} variant="h6" noWrap>
-            {item.title}
+            {item.username}
             </Typography>
           </ImageListItem>
         ))}

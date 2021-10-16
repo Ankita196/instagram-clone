@@ -86,7 +86,8 @@ export default function Navbar() {
       location:"nagpur",
       profile:
           "https://i.scdn.co/image/ab67616d0000b27354e544672baa16145d67612b",
-        posts:"https://a10.gaanacdn.com/gn_img/albums/kGxbnw0Ky4/Gxbn8dG03y/size_xxl.jpg"
+        posts:"https://a10.gaanacdn.com/gn_img/albums/kGxbnw0Ky4/Gxbn8dG03y/size_xxl.jpg",
+        story:"https://a10.gaanacdn.com/gn_img/albums/kGxbnw0Ky4/Gxbn8dG03y/size_xxl.jpg"
   
       
       },
@@ -99,7 +100,7 @@ export default function Navbar() {
           "https://a10.gaanacdn.com/gn_img/albums/kGxbnw0Ky4/Gxbn8dG03y/size_xxl.jpg",
           posts:
           "https://m.media-amazon.com/images/I/81hQLmFiFNL._SS500_.jpg",
-       
+       story:"https://i.scdn.co/image/ab67616d0000b27354e544672baa16145d67612b"
       },
       {
         id: 3,
@@ -110,6 +111,7 @@ export default function Navbar() {
       profile:
           "https://m.media-amazon.com/images/I/81hQLmFiFNL._SS500_.jpg",
       posts:"https://m.media-amazon.com/images/I/81hQLmFiFNL._SS500_.jpg",
+      story:"https://images.hungama.com/c/1/9e3/fdd/53988130/53988130_300x300.jpg"
       },
       {
         id: 4,
@@ -120,7 +122,7 @@ export default function Navbar() {
       profile:
           "https://images.hungama.com/c/1/9e3/fdd/53988130/53988130_300x300.jpg",
           posts:"https://m.media-amazon.com/images/I/81hQLmFiFNL._SS500_.jpg",
-        
+          story:"https://i.scdn.co/image/ab67616d0000b27354e544672baa16145d67612b"
       },
       {
         id: 5,
@@ -132,10 +134,10 @@ export default function Navbar() {
           "https://images.hungama.com/c/1/9e3/fdd/53988130/53988130_300x300.jpg",
          posts:
           "https://images.hungama.com/c/1/9e3/fdd/53988130/53988130_300x300.jpg",
-       
+          story:"https://i.scdn.co/image/ab67616d0000b27354e544672baa16145d67612b"
       },
       {
-        id: 4,
+        id: 6,
        
       username: "yogesh",
       name:"Yogesh kumar",
@@ -144,11 +146,11 @@ export default function Navbar() {
           "https://images.hungama.com/c/1/9e3/fdd/53988130/53988130_300x300.jpg",
           posts:
           "https://images.hungama.com/c/1/9e3/fdd/53988130/53988130_300x300.jpg",
-        
+          story:"https://i.scdn.co/image/ab67616d0000b27354e544672baa16145d67612b"
       },
       
       {
-        id: 5,
+        id: 7,
      
       username: "lalit",
       name:"lalit Prajapati",
@@ -157,9 +159,10 @@ export default function Navbar() {
           "https://images.hungama.com/c/1/9e3/fdd/53988130/53988130_300x300.jpg",
           posts:
           "https://images.hungama.com/c/1/9e3/fdd/53988130/53988130_300x300.jpg",
+          story:"https://i.scdn.co/image/ab67616d0000b27354e544672baa16145d67612b"
       },
       {
-        id: 6,
+        id: 8,
      
       username: "neha",
       name:"Neha Sontake",
@@ -168,6 +171,7 @@ export default function Navbar() {
           "https://images.hungama.com/c/1/9e3/fdd/53988130/53988130_300x300.jpg",
           posts:
           "https://images.hungama.com/c/1/9e3/fdd/53988130/53988130_300x300.jpg",
+          story:"https://i.scdn.co/image/ab67616d0000b27354e544672baa16145d67612b"
       }
     
     ],
@@ -205,6 +209,7 @@ export default function Navbar() {
       profile:
           "https://m.media-amazon.com/images/I/81hQLmFiFNL._SS500_.jpg",
       posts:"https://m.media-amazon.com/images/I/81hQLmFiFNL._SS500_.jpg",
+
       },
       {
         id: 4,
@@ -304,7 +309,7 @@ export default function Navbar() {
       </div>
           <div />
           <div >
-           <Link to="/" className={classes.link}> <IconButton aria-label="show 4 new mails" color="inherit">
+           <Link  to={{ pathname:`/home`,state:{profile:profile}}} className={classes.link}> <IconButton aria-label="show 4 new mails" color="inherit">
               <HomeIcon />
             </IconButton></Link>
             <Link to="/chat" className={classes.link}><IconButton aria-label="show 4 new mails" color="inherit">
