@@ -13,6 +13,7 @@ import BookmarkIcon from '@material-ui/icons/Bookmark';
 import TelegramIcon from '@material-ui/icons/Telegram';
 import TurnedInNotIcon from '@material-ui/icons/TurnedInNot';
 import ChatBubbleOutlineIcon from '@material-ui/icons/ChatBubbleOutline';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -91,12 +92,12 @@ export default function Posts(props) {
     <>
       {post.map((data) => (
         <>
-          <div className={classes.grow}>
+          <div className={classes.grow} key={posts.id}>
             <div className={classes.header}>
-              <div className={classes.avtar}>
+            <div className={classes.avtar}>
                 <Avatar src={data.profile} />
               </div>
-              <div className={classes.avtar}>
+           <div className={classes.avtar}>
                 <Typography className={classes.username}>
                   {data.username}
                 </Typography>

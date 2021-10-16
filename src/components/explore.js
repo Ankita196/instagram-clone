@@ -2,7 +2,7 @@ import React ,{useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import ImageList from '@material-ui/core/ImageList';
 import ImageListItem from '@material-ui/core/ImageListItem';
-import itemData from './itemData';
+import {Link} from "react-router-dom"
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -35,7 +35,7 @@ export default function Explore(props) {
       <ImageList rowHeight={160} className={classes.imageList} cols={2}>
         {explore.map((item) => (
           <ImageListItem key={item.id} cols={item.cols || 1}>
-            <img src={item.posts} alt={item.name}  className={classes.image}/>
+            <img src={item.posts} alt={item.name}  className={classes.image}/> 
           </ImageListItem>
         ))}
       </ImageList>
