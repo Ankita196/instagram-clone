@@ -119,6 +119,7 @@ export default function Profile(props) {
   const classes = useStyles();
 
   const profile = props.profile;
+  const posts=props.posts
 
   return (
     <>
@@ -153,7 +154,7 @@ export default function Profile(props) {
               post
               <br />
               <Typography className={classes.subtitle1} variant="h6" noWrap>
-                {profile.posts.length}
+                {posts.length}
               </Typography>
             </div>{' '}
             <div className={classes.subtitle}>
