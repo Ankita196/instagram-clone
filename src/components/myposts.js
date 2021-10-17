@@ -51,6 +51,7 @@ export default function Myposts(props) {
   const classes = useStyles();
   const posts=props.posts.posts
 const [post,setPost]=useState("")
+const fileInputRef = useRef();
 
   const onSelectFile = (e) => {
     e.preventDefault();
@@ -101,8 +102,21 @@ const [post,setPost]=useState("")
       >
         <Fade in={open}>
           <div className={classes.paper}>
-            <h2 id="transition-modal-title">Transition modal</h2>
-            <p id="transition-modal-description">react-transition-group animates me.</p>
+          <form onSubmit={(e) => {
+          onsubmit(e);
+        }} > <div>
+        
+        
+        <input
+        margin="normal"
+       
+        type="file"  ref={fileInputRef}
+         onChange={(e) => {
+         onSelectFile(e);
+       }}
+       required /></div>
+       <button variant="contained" color="primary" type="submit"> Submit</button>
+       </form>
           </div>
         </Fade>
       </Modal></div>

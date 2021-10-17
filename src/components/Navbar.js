@@ -103,7 +103,7 @@ export default function Navbar() {
       </div>
           <div />
           <div >
-           <Link  to={{ pathname:`/home`,state:{profile:profile}}} className={classes.link}> <IconButton aria-label="show 4 new mails" color="inherit">
+           <Link  to="/home" className={classes.link}> <IconButton aria-label="show 4 new mails" color="inherit">
               <HomeIcon />
             </IconButton></Link>
             <Link to="/chat" className={classes.link}><IconButton aria-label="show 4 new mails" color="inherit">
@@ -132,7 +132,7 @@ export default function Navbar() {
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
-        <Link to="/profile" className={classes.link}><MenuItem onClick={handleClose}><AccountCircle />Profile</MenuItem></Link>
+        <Link to="/profile/myposts" className={classes.link}><MenuItem onClick={handleClose}><AccountCircle />Profile</MenuItem></Link>
         <MenuItem onClick={handleClose}><TurnedInNotIcon />Saved</MenuItem>
         <MenuItem onClick={handleClose}>< SettingsIcon />settings</MenuItem>
         <MenuItem onClick={handleClose}><AutorenewIcon />Switch Account</MenuItem>
