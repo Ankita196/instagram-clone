@@ -1,55 +1,75 @@
-import React, { useState, useRef } from 'react';
+import {useState,useRef } from "react";
+import React from 'react';
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
+import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
-import ImageList from '@material-ui/core/ImageList';
-import ImageListItem from '@material-ui/core/ImageListItem';
-import { Link } from 'react-router-dom';
-import Modal from '@material-ui/core/Modal';
-import Backdrop from '@material-ui/core/Backdrop';
-import Fade from '@material-ui/core/Fade';
+import Paper from '@material-ui/core/Paper';
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    justifyContent: 'space-around',
-    overflow: 'hidden',
-    backgroundColor: theme.palette.background.paper,
-    marginTop: 20,
-    backgroundColor: '#eeeeee',
-  },
-  imageList: {
-    width: 700,
-    height: 650,
-  },
-  image: {
-    width: '100%',
-    height: '100%',
-  },
-  button: {
-    marginLeft: 900,
-    width: 200,
-    height: 30,
-  },
-  modal: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
+    flexGrow: 1,
+    padding:90,
+    display:'flex',
+    flexDirection:"column"
   },
   paper: {
-    backgroundColor: theme.palette.background.paper,
-    border: '2px solid #000',
-    boxShadow: theme.shadows[5],
-    padding: theme.spacing(2, 4, 3),
+    height:430,
+    width:370,
+    backgroundColor:"#eeeeee",
+   padding:40,
+  display:"block",
+  marginLeft:"auto",
+  marginRight:"auto"
   },
+ 
+  heading :{
+    color:'white',
+     display:"block",
+  marginLeft:"auto",
+  marginRight:"auto",
+   fontSize:30,
+    fontWeight:"bold"
+
+  },
+  subheading:{
+    color:'#002884',
+    marginLeft:15,
+    fontSize:20
+  },
+  input:{
+    backgroundColor:"white"
+  },
+  album :{
+    color:"pink",
+    fontSize:40
+  },
+  image:{
+    height:100,
+    width:100},
+  div1 :{
+    display:"flex",
+    flexDirection:"row"
+  } ,
+  upload :{
+     display:"flex"
+  } ,
+  link:{
+    textDecoration:"none",
+    color:"white"
+  }
+
 }));
 
-export default function Upload(props) {
-  const classes = useStyles();
- const { posts,setPosts }=props
- 
-  const [post, setPost] = useState('');
 
-  const fileInputRef = useRef();
+export default function AddAlbum(props) {
+ const classes = useStyles();
+
+   const fileInputRef = useRef();
+  const {posts, setPosts } = props;
+ 
+  const [post, setPost] = useState("");
 
   const onSelectFile = (e) => {
     e.preventDefault();
@@ -59,6 +79,7 @@ export default function Upload(props) {
       }
     }
   };
+
   const onsubmit = (e) => {
     e.preventDefault();
     setPosts([
@@ -66,77 +87,51 @@ export default function Upload(props) {
 
       {
         id: new Date().getTime().toString(),
-
+      
         post: post,
       },
     ]);
-
-    setPost('');
+    
+    setPost("");
   };
 
-  const [open, setOpen] = React.useState(false);
+  
+   
 
-  const handleOpen = () => {
-    setOpen(true);
-  };
 
-  const handleClose = () => {
-    setOpen(false);
-  };
+ 
   return (
-    <>
-      <div>
-        <button className={classes.button} onClick={handleOpen}>
-          upload
-        </button>{' '}
-        <form
-                onSubmit={(e) => {
-                  onsubmit(e);
-                }}
-              >
-        <Modal
-          aria-labelledby="transition-modal-title"
-          aria-describedby="transition-modal-description"
-          className={classes.modal}
-          open={open}
-          onClose={handleClose}
-         
-          
-        >
-        
-            <div className={classes.paper}>
-             
-                {' '}
-                <div>
-                  <input
-                    margin="normal"
-                    type="file"
-                    ref={fileInputRef}
-                    onChange={(e) => {
-                      onSelectFile(e);
-                    }}
-                    required
-                  />
-                </div>
-                <button variant="contained" color="primary" type="submit">
-                  {' '}
-                  Submit
-                </button>
-              
-            </div>
-         
-        </Modal>
-        </form>
-      </div>
+    
+     <>
       <div className={classes.root}>
-        <ImageList rowHeight={160} className={classes.imageList} cols={2}>
-          {posts.map((item) => (
-            <ImageListItem key={item.id} cols={item.cols || 1}>
-              <img src={item.post} className={classes.image} />
-            </ImageListItem>
-          ))}
-        </ImageList>
-      </div>
-    </>
+        <form onSubmit={(e) => {
+          onsubmit(e);
+        }} >
+       
+       
+        <div className={classes.upload}>
+        <div>
+        
+        
+           <input
+           margin="normal"
+          
+           type="file"  ref={fileInputRef}
+            onChange={(e) => {
+            onSelectFile(e);
+          }}
+          required /></div>
+          <br />
+          <br /><br />
+          <div>
+          {post && <img src={post} alt="image1" className={classes.image} />}</div>
+          </div><br/><br/>
+         <Button variant="contained" color="primary" type="submit"> Submit</Button>
+         
+         
+       
+          </form> 
+    </div>
+   </>
   );
 }
