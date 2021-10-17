@@ -177,7 +177,7 @@ export default function App() {
        
       },
       {
-        id: 4,
+        id: 6,
        
       username: "yogesh",
       name:"Yogesh kumar",
@@ -190,7 +190,7 @@ export default function App() {
       },
       
       {
-        id: 5,
+        id: 7,
      
       username: "lalit",
       name:"lalit Prajapati",
@@ -201,7 +201,7 @@ export default function App() {
           "https://images.hungama.com/c/1/9e3/fdd/53988130/53988130_300x300.jpg",
       },
       {
-        id: 6,
+        id: 8,
      
       username: "neha",
       name:"Neha Sontake",
@@ -214,10 +214,10 @@ export default function App() {
     
     ],
 
-     posts: [ "https://m.media-amazon.com/images/I/81hQLmFiFNL._SS500_.jpg", "https://m.media-amazon.com/images/I/81hQLmFiFNL._SS500_.jpg", "https://m.media-amazon.com/images/I/81hQLmFiFNL._SS500_.jpg", "https://m.media-amazon.com/images/I/81hQLmFiFNL._SS500_.jpg", "https://m.media-amazon.com/images/I/81hQLmFiFNL._SS500_.jpg", "https://m.media-amazon.com/images/I/81hQLmFiFNL._SS500_.jpg", "https://m.media-amazon.com/images/I/81hQLmFiFNL._SS500_.jpg", "https://m.media-amazon.com/images/I/81hQLmFiFNL._SS500_.jpg"] ,
+     posts: [{post: "https://m.media-amazon.com/images/I/81hQLmFiFNL._SS500_.jpg"},{post: "https://m.media-amazon.com/images/I/81hQLmFiFNL._SS500_.jpg"}, {post:"https://m.media-amazon.com/images/I/81hQLmFiFNL._SS500_.jpg"}, {post:"https://m.media-amazon.com/images/I/81hQLmFiFNL._SS500_.jpg"}, {post:"https://m.media-amazon.com/images/I/81hQLmFiFNL._SS500_.jpg"}, {post:"https://m.media-amazon.com/images/I/81hQLmFiFNL._SS500_.jpg"}, {post:"https://m.media-amazon.com/images/I/81hQLmFiFNL._SS500_.jpg"}, {post:"https://m.media-amazon.com/images/I/81hQLmFiFNL._SS500_.jpg"}] ,
     
    
-    igtv:[ "https://m.media-amazon.com/images/I/81hQLmFiFNL._SS500_.jpg", "https://m.media-amazon.com/images/I/81hQLmFiFNL._SS500_.jpg",]
+    igtv:[ "https://m.media-amazon.com/images/I/81hQLmFiFNL._SS500_.jpg", "https://m.media-amazon.com/images/I/81hQLmFiFNL._SS500_.jpg"]
     }
   ])
   return (
@@ -234,7 +234,7 @@ export default function App() {
       
      <Route exact path="/Explore"><Explore posts={profile[0].followers}/></Route>
      <Route exact path="/igtv"><Profile profile={profile[0]}/><Igtv igtv={profile[0]}/></Route>
-     <Route exact path="/profile/myposts"><Profile profile={profile[0]}/><Myposts posts={profile[0]}/></Route>
+     <Route exact path="/profile/myposts"><Profile profile={profile[0]}/><Myposts posts={profile[0].posts}/></Route>
     
      
     

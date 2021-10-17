@@ -1,12 +1,11 @@
-import React ,{useState} from 'react';
+import React, { useState, useRef } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import ImageList from '@material-ui/core/ImageList';
 import ImageListItem from '@material-ui/core/ImageListItem';
-import {Link} from "react-router-dom"
+import { Link } from 'react-router-dom';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
-
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -15,22 +14,21 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'space-around',
     overflow: 'hidden',
     backgroundColor: theme.palette.background.paper,
-    marginTop:20,
-    backgroundColor:"#eeeeee"
+    marginTop: 20,
+    backgroundColor: '#eeeeee',
   },
   imageList: {
     width: 700,
     height: 650,
-   
   },
-  image:{
-    width:"100%",
-    height:"100%"
+  image: {
+    width: '100%',
+    height: '100%',
   },
-  button:{
-    marginLeft:900,
-    width:200,
-    height:30
+  button: {
+    marginLeft: 900,
+    width: 200,
+    height: 30,
   },
   modal: {
     display: 'flex',
@@ -43,15 +41,15 @@ const useStyles = makeStyles((theme) => ({
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
   },
-  
 }));
-
 
 export default function Myposts(props) {
   const classes = useStyles();
-  const posts=props.posts.posts
-const [post,setPost]=useState("")
-const fileInputRef = useRef();
+ const { posts }=props
+ const [setPosts]=useState('')
+  const [post, setPost] = useState('');
+
+  const fileInputRef = useRef();
 
   const onSelectFile = (e) => {
     e.preventDefault();
@@ -63,17 +61,17 @@ const fileInputRef = useRef();
   };
   const onsubmit = (e) => {
     e.preventDefault();
-    setPost([
+    setPosts([
       ...posts,
 
       {
         id: new Date().getTime().toString(),
-       
-        post: albumCover,
+
+        post: post,
       },
     ]);
-   
-    setPost("");
+
+    setPost('');
   };
 
   const [open, setOpen] = React.useState(false);
@@ -87,49 +85,58 @@ const fileInputRef = useRef();
   };
   return (
     <>
-    <div>
-    <button className={classes.button} onClick={handleOpen}>upload</button> <Modal
-        aria-labelledby="transition-modal-title"
-        aria-describedby="transition-modal-description"
-        className={classes.modal}
-        open={open}
-        onClose={handleClose}
-        closeAfterTransition
-        BackdropComponent={Backdrop}
-        BackdropProps={{
-          timeout: 500,
-        }}
-      >
-        <Fade in={open}>
-          <div className={classes.paper}>
-          <form onSubmit={(e) => {
-          onsubmit(e);
-        }} > <div>
+      <div>
+        <button className={classes.button} onClick={handleOpen}>
+          upload
+        </button>{' '}
+        <form
+                onSubmit={(e) => {
+                  onsubmit(e);
+                }}
+              >
+        <Modal
+          aria-labelledby="transition-modal-title"
+          aria-describedby="transition-modal-description"
+          className={classes.modal}
+          open={open}
+          onClose={handleClose}
+         
+          
+        >
         
-        
-        <input
-        margin="normal"
-       
-        type="file"  ref={fileInputRef}
-         onChange={(e) => {
-         onSelectFile(e);
-       }}
-       required /></div>
-       <button variant="contained" color="primary" type="submit"> Submit</button>
-       </form>
-          </div>
-        </Fade>
-      </Modal></div>
-    <div className={classes.root}>
-  
-      <ImageList rowHeight={160} className={classes.imageList} cols={2}>
-        {posts.map((item) => (
-          <ImageListItem key={item.id} cols={item.cols || 1}>
-           <img src={item}   className={classes.image}/>
-          </ImageListItem>
-        ))}
-      </ImageList>
-    </div>
+            <div className={classes.paper}>
+             
+                {' '}
+                <div>
+                  <input
+                    margin="normal"
+                    type="file"
+                    ref={fileInputRef}
+                    onChange={(e) => {
+                      onSelectFile(e);
+                    }}
+                    required
+                  />
+                </div>
+                <button variant="contained" color="primary" type="submit">
+                  {' '}
+                  Submit
+                </button>
+              
+            </div>
+         
+        </Modal>
+        </form>
+      </div>
+      <div className={classes.root}>
+        <ImageList rowHeight={160} className={classes.imageList} cols={2}>
+          {posts.map((item) => (
+            <ImageListItem key={item.id} cols={item.cols || 1}>
+              <img src={item.post} className={classes.image} />
+            </ImageListItem>
+          ))}
+        </ImageList>
+      </div>
     </>
   );
 }
