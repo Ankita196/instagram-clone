@@ -8,6 +8,7 @@ import Chat from "./components/Chat"
 import Profile from "./components/Profile"
 import Igtv from "./components/igtv"
 import Myposts from "./components/myposts"
+import Upload from "./components/Uploadpost"
 
 import {BrowserRouter,Switch,Route} from "react-router-dom"
 
@@ -237,7 +238,7 @@ export default function App() {
      <Route exact path="/igtv"><Profile profile={profile[0]} /><Igtv igtv={profile[0]}/></Route>
      <Route exact path="/profile/myposts"><Profile profile={profile[0]} posts={posts}/><Myposts posts={posts} setPosts={setPosts}/></Route>
     
-     
+     <Route exact path="/upload"><Upload posts={posts}/></Route>
     
      
      </Switch>

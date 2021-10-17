@@ -45,88 +45,18 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Myposts(props) {
   const classes = useStyles();
- const { posts }=props
- const [setPosts]=useState('')
-  const [post, setPost] = useState('');
+ const { posts,setPosts }=props
+ 
+ 
 
-  const fileInputRef = useRef();
-
-  const onSelectFile = (e) => {
-    e.preventDefault();
-    if (e.target.files && e.target.files.length > 0) {
-      if (e.target.files.length > 0) {
-        setPost(URL.createObjectURL(e.target.files[0]));
-      }
-    }
-  };
-  const onsubmit = (e) => {
-    e.preventDefault();
-    setPosts([
-      ...posts,
-
-      {
-        id: new Date().getTime().toString(),
-
-        post: post,
-      },
-    ]);
-
-    setPost('');
-  };
-
-  const [open, setOpen] = React.useState(false);
-
-  const handleOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
+  
   return (
     <>
       <div>
-        <button className={classes.button} onClick={handleOpen}>
+       <Link to="/upload"> <button className={classes.button} >
           upload
-        </button>{' '}
-        <form
-                onSubmit={(e) => {
-                  onsubmit(e);
-                }}
-              >
-        <Modal
-          aria-labelledby="transition-modal-title"
-          aria-describedby="transition-modal-description"
-          className={classes.modal}
-          open={open}
-          onClose={handleClose}
-         
-          
-        >
-        
-            <div className={classes.paper}>
-             
-                {' '}
-                <div>
-                  <input
-                    margin="normal"
-                    type="file"
-                    ref={fileInputRef}
-                    onChange={(e) => {
-                      onSelectFile(e);
-                    }}
-                    required
-                  />
-                </div>
-                <button variant="contained" color="primary" type="submit">
-                  {' '}
-                  Submit
-                </button>
-              
-            </div>
-         
-        </Modal>
-        </form>
+        </button></Link>{' '}
+       
       </div>
       <div className={classes.root}>
         <ImageList rowHeight={160} className={classes.imageList} cols={2}>
