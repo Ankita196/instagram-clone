@@ -181,9 +181,9 @@ export default function Profile(props) {
       </div>
 
       <div className={classes.root2}>
-        <div>
+       <Link to="/myposts"> <div>
           POSTS <GridOnIcon className={classes.icon1} />
-        </div>
+        </div></Link>
         <div>
          <Link to="/igtv"> IGTV</Link>
           <TvOffIcon className={classes.icon1} />
@@ -196,15 +196,7 @@ export default function Profile(props) {
           <ContactsIcon className={classes.icon1} />
         </div>
       </div>
-      <div className={classes.root1}>
-        <ImageList rowHeight={160} className={classes.imageList} cols={3}>
-          {profile.posts.map((item) => (
-            <ImageListItem key={item.id} cols={item.cols || 1}>
-              <img src={item} className={classes.image1} />
-            </ImageListItem>
-          ))}
-        </ImageList>
-      </div>
+    
     </>
   );
 }
