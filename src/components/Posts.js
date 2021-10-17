@@ -13,7 +13,11 @@ import BookmarkIcon from '@material-ui/icons/Bookmark';
 import TelegramIcon from '@material-ui/icons/Telegram';
 import TurnedInNotIcon from '@material-ui/icons/TurnedInNot';
 import ChatBubbleOutlineIcon from '@material-ui/icons/ChatBubbleOutline';
-import { Link } from 'react-router-dom';
+
+import TelegramIcon from '@material-ui/icons/Telegram';
+import Button from '@material-ui/core/Button';
+
+
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -82,11 +86,58 @@ const useStyles = makeStyles((theme) => ({
     fontSize: 40,
     marginLeft: 10,
   },
+  text:{
+    height:30,
+  
+  },
+  comment:{
+    marginLeft:30,
+    marginTop:20,
+    
+    
+    fontSize:15
+  },
+  see:{
+    color:"blue"
+  }
 }));
+
+
 
 export default function Posts(props) {
   const classes = useStyles();
   const post = props.posts;
+  const [comments,setComments]=useState([{id:1,comment:'nice awesome'}])
+  const [comment,setComment]=useState(""),
+  const [show,setShow]=useState(false)
+
+const [like,setLike]=useState(10)
+const liked= ()=>{
+  if(like>10){
+  setLike(like-1)
+  }else{
+    setLike(like+1)
+  }
+}
+const dislike= ()=>{
+  setLike(like-1)
+}
+
+
+const onsubmit = (e) => {
+  e.preventDefault();
+  setComments([
+    ...comments,
+
+    {
+      id: new Date().getTime().toString(),
+     comment:comment,
+     
+    },
+  ]);
+  setComment("");
+  
+};
 
   return (
     <>
@@ -120,8 +171,8 @@ export default function Posts(props) {
                   control={
                     <Checkbox
                       icon={<FavoriteBorder className={classes.icons} />}
-                      checkedIcon={<Favorite className={classes.icons2} />}
-                    />
+                      checkedIcon={<Favorite className={classes.icons2}  />}
+                    onClick={liked}/>
                   }
                 />{' '}
               </div>{' '}
@@ -139,8 +190,32 @@ export default function Posts(props) {
                   />
                 }
               />
-              <div></div>
+            
             </div>
+            <div className={classes.comment}>
+            <div>Total likes{like}</div>
+            <div>{comments[comments.length-1].comment}</div>
+           
+           {
+             show?comments.map((item)=>(
+               <div>{item.comment}</div>
+             )) :null
+           }
+           <div onClick={()=>setShow(!show)} className={classes.see}>see all</div>
+            <div> <form onSubmit={(e) => {
+          onsubmit(e);
+        }} > Post Comments <input
+         
+          placeholder="comment"
+         className={classes.text}
+          variant="outlined"
+          value={comment}
+          onChange={(e) => {
+            setComment(e.target.value);
+          }}
+        /><Button  type="submit" variant="outlined" color="secondary"><TelegramIcon/></Button></form>
+        </div>
+        </div>
           </div>
         </>
       ))}
