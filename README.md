@@ -1,3 +1,5 @@
-# react-p4y5sn
+# Instagram clone
+instgram stories web peg<br/>
+post web page<br/>
+profile web page
 
-[Edit on StackBlitz ⚡️](https://stackblitz.com/edit/react-p4y5sn)
