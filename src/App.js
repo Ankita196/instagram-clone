@@ -13,6 +13,7 @@ import Upload from "./components/Uploadpost"
 import {BrowserRouter,Switch,Route} from "react-router-dom"
 
 export default function App() {
+  // data
   const [profile, setProfile] = useState([
     {
       id: 1,
